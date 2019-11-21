@@ -1,0 +1,46 @@
+<div class="container">
+
+  <div class="row ml-3">
+      <div class="offset-md-3 col-md-6 offset-md-3">
+          <%= form_tag(emails_path, method: "post", class: "form", id: "contact-form", remote: true)  do %>
+              
+              <div class="text-center">
+                  <%= submit_tag("Recevoir un email", class: "btn btn-start-order") %>
+              </div>
+          <%end%>
+      </div>
+  </div>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Liste des emails</th>
+      <th scope="col">Email sélectionné</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mack</td>
+      <td>Otto</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Nathan</td>
+      <td>Thornton</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Fabio</td>
+      <td>the Bird</td>
+    </tr>
+<%Email.all.each do |email| %>
+        <tr>
+      <th scope="row"><%=email.id %></th>
+      <td><%=email.object %></td>
+      <td><%=email.body %></td>
+    </tr>
+<%end%>
+  </tbody>
+</table>
